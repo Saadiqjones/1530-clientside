@@ -3,8 +3,6 @@ import {
   SET_AUTHENTICATED,
   SET_UNAUTHENTICATED,
   LOADING_USER,
-  LIKE_CAMPAIGN,
-  UNLIKE_CAMPAIGN,
   LIKE_POST,
   UNLIKE_POST,
   MARK_NOTIFICATIONS_READ
@@ -49,29 +47,11 @@ export default function(state = initialState, action) {
           }
         ]
       };
-      case LIKE_CAMPAIGN:
-      return {
-        ...state,
-        likes: [
-          ...state.likes,
-          {
-            userHandle: state.credentials.handle,
-            campaignId: action.payload.campaignId
-          }
-        ]
-      };
     case UNLIKE_POST:
       return {
         ...state,
         likes: state.likes.filter(
           (like) => like.postId !== action.payload.postId
-        )
-      };
-      case UNLIKE_CAMPAIGN:
-      return {
-        ...state,
-        likes: state.likes.filter(
-          (like) => like.campaignId !== action.payload.campaignId
         )
       };
     case MARK_NOTIFICATIONS_READ:

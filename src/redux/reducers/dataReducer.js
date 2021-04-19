@@ -6,20 +6,12 @@ import {
   DELETE_POST,
   POST_POST,
   SET_POST,
-  SET_CAMPAIGNS,
-  LIKE_CAMPAIGN,
-  UNLIKE_CAMPAIGN,
-  DELETE_CAMPAIGN,
-  POST_CAMPAIGN,
-  SET_CAMPAIGN,
   SUBMIT_COMMENT
 } from '../types';
 
 const initialState = {
   posts: [],
   post: {},
-  campaigns: [],
-  campaign: {},
   loading: false
 };
 
@@ -66,52 +58,12 @@ export default function(state = initialState, action) {
         ...state,
         posts: [action.payload, ...state.posts]
       };
-      case SET_CAMPAIGNS:
-      return {
-        ...state,
-        campaigns: action.payload,
-        loading: false
-      };
-    case SET_CAMPAIGN:
-      return {
-        ...state,
-        campaign: action.payload
-      };
-    case LIKE_CAMPAIGN:
-    case UNLIKE_CAMPAIGN:
-      let Index = state.campaigns.findIndex(
-        (campaign) => campaign.campaignId === action.payload.campaignId
-      );
-      state.campaigns[Index] = action.payload;
-      if (state.campaign.campaignId === action.payload.campaignId) {
-        state.campaign = action.payload;
-      }
-      return {
-        ...state
-      };
-    case DELETE_CAMPAIGN:
-      Index = state.campaigns.findIndex(
-        (campaign) => campaign.campaignId === action.payload
-      );
-      state.campaigns.splice(index, 1);
-      return {
-        ...state
-      };
-    case POST_CAMPAIGN:
-      return {
-        ...state,
-        campaigns: [action.payload, ...state.campaigns]
-      };
     case SUBMIT_COMMENT:
       return {
         ...state,
         post: {
           ...state.post,
           comments: [action.payload, ...state.post.comments]
-        },
-        campaign: {
-          ...state.campaign,
-          comments: [action.payload, ...state.campaign.comments]
         }
       };
     default:
