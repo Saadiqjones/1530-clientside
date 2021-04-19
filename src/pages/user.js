@@ -16,7 +16,7 @@ import { getUserData } from '../redux/actions/dataActions';
 class user extends Component {
   state = {
     profile: null,
-    postIdParam: null,
+    postIdParam: null, 
     campaignIdParam: null
   };
   componentDidMount() {
