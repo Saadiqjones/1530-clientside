@@ -17,8 +17,7 @@ import axios from 'axios';
 // Get all posts
 export const getPosts = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
-  axios
-    .get('/posts')
+  axios.get('/posts')
     .then((res) => {
       dispatch({
         type: SET_POSTS,
@@ -34,8 +33,7 @@ export const getPosts = () => (dispatch) => {
 };
 export const getPost = (postId) => (dispatch) => {
   dispatch({ type: LOADING_UI });
-  axios
-    .get(`/post/${postId}`)
+  axios.get(`/post/${postId}`)
     .then((res) => {
       dispatch({
         type: SET_POST,
@@ -107,12 +105,10 @@ export const submitComment = (postId, commentData) => (dispatch) => {
     });
 };
 export const deletePost = (postId) => (dispatch) => {
-  axios
-    .delete(`/post/${postId}`)
+  axios.delete(`/post/${postId}`)
     .then(() => {
       dispatch({ type: DELETE_POST, payload: postId });
-    })
-    .catch((err) => console.log(err));
+    }).catch((err) => console.log(err));
 };
 
 export const getUserData = (userHandle) => (dispatch) => {

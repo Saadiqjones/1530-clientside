@@ -46,10 +46,10 @@ export default function(state = initialState, action) {
         ...state
       };
     case DELETE_POST:
-      index = state.posts.findIndex(
+      let indexDel = state.posts.findIndex(
         (post) => post.postId === action.payload
       );
-      state.posts.splice(index, 1);
+      state.posts.splice(indexDel, 1);
       return {
         ...state
       };
