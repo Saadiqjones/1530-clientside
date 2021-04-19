@@ -3,12 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "dayjs": "^1.8.11",
+    "jwt-decode": "^2.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "4.0.3",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -34,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://us-central1-project-3492367285094508650.cloudfunctions.net/api"
 }
